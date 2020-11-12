@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.robotcontroller.external.samples;
+//package org.firstinspires.ftc.robotcontroller.external.samples;
 import com.qualcomm.robotcore.util.Range;
 import java.lang.Math;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -30,11 +30,10 @@ public class MaybeMecanum extends LinearOpMode
     //Drive views are from looking at the robot's back
     private DcMotor frontLeftDrive = null;
     private DcMotor frontRightDrive = null;
-    private DcMotor backLeftDrive=null;
-    private DcMotor backRightDrive=null;
+    private DcMotor backLeftDrive = null;
+    private DcMotor backRightDrive = null;
     public void setPower()
     {
-
         double x = gamepad1.left_stick_x;
         double y = gamepad1.left_stick_y;
         double r = gamepad1.right_stick_x;
@@ -47,6 +46,8 @@ public class MaybeMecanum extends LinearOpMode
         frontRightDrive.setPower(drivePowers[1]);
         backLeftDrive.setPower(drivePowers[2]);
         backRightDrive.setPower(drivePowers[3]);
+        telemetry.addData("Motors", "frontLeft (%.2f), frontRight (%.2f), backLeft (%.2f), backRight (%.2f)",
+                drivePowers[0], drivePowers[1], drivePowers[2], drivePowers[3]);
     }
     @Override
     public void runOpMode()
@@ -65,7 +66,7 @@ public class MaybeMecanum extends LinearOpMode
         // Most robots need the motor on one side to be reversed to drive forward
         // Reverse the motor that runs backwards when connected directly to the battery
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD);
-        backLeftDrive.setDirection(DcMotor.Direction.FORWARD)
+        backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
         frontRightDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.REVERSE);
 
@@ -101,7 +102,7 @@ public class MaybeMecanum extends LinearOpMode
             setPower();
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
-            telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
+
             telemetry.update();
         }
     }
