@@ -37,7 +37,7 @@ public class MaybeMecanum extends LinearOpMode
         double x = gamepad1.left_stick_x;
         double y = gamepad1.left_stick_y;
         double r = gamepad1.right_stick_x;
-        double[] drivePowers={x+y+r, x-y-r, x-y+r, x+y-r};
+        double[] drivePowers={y+x+r, y-x-r, y-x+r, y+x-r};
         double max=0;
         for(int i=0; i<drivePowers.length; i++) max=Math.max(max, Math.abs(drivePowers[i]));
         for(int i=0; i<drivePowers.length; i++) drivePowers[i]/=max;
